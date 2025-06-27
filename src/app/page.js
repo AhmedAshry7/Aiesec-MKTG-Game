@@ -2,14 +2,18 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import styles from "./page.module.css";
+
+import Modal from "./Modal";
+import FirstModal from "./FirstModal";
 import Box from "./Box";
-import image1 from "./assets/image1.png";
+
+import styles from "./page.module.css";
+
+import toast, { Toaster } from 'react-hot-toast';
 import island2 from "./assets/island2.png";
 import coconut from "./assets/coconut.png";
 import surfing from "./assets/surfing.png";
 import element01 from "./assets/element01.png";
-import Modal from "./Modal";
 import huts from "./assets/huts.png"
 import end from "./assets/beach.png";
 import palm1 from "./assets/palm1.png";
@@ -24,7 +28,9 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showModal,setShowModal]=useState(true);
+  const [showCongratsModal, setShowCongratsModal] = useState(true);   // existing end-game modal
+  const [playerName, setPlayerName] = useState("");
+  const [showIntroModal, setShowIntroModal] = useState(true);
   const handleSubmit = (inputValue) => {
     const correctAnswer = questions[currentIndex].answer.toLowerCase().trim();
     if (inputValue.toLowerCase().trim() === correctAnswer) {
@@ -32,11 +38,16 @@ export default function Home() {
         setCurrentIndex(currentIndex + 1);
       }
       if (currentIndex>2){
-        setShowModal(false);
+        setShowCongratsModal(false);
       }
     } else {
-      // do nothing; Box will handle clearing input
+      toast.error('Wrong! Try again');
     }
+  };
+
+  const handleNameSubmit = (name) => {
+    setPlayerName(name);
+    setShowIntroModal(false);
   };
 
   return (
@@ -63,7 +74,9 @@ export default function Home() {
         />
       ))}
       <Image className={styles.endImage} src={end} alt={"end"} />
-      <Modal invisible={showModal}/>
+      {showIntroModal && <FirstModal onSubmit={handleNameSubmit} />}
+      <Modal invisible={showCongratsModal} name={playerName} />
+      <Toaster />
     </div>
   );
 }

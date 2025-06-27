@@ -76,6 +76,11 @@ display: flex;
   align-items: center;
 }
 
+.text-container{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 .text {
   font-size: 40px;
   font-weight: 500;
