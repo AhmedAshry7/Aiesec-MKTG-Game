@@ -89,6 +89,7 @@ display: flex;
 .text-container{
   align-items: center;
   display: flex;
+  position: fixed;
   margin-top: -152px;
 }
 .text {
