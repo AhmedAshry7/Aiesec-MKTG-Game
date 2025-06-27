@@ -13,7 +13,8 @@ function Modal({ invisible, name }) {
   if (!isVisible) return null;
 
   return (
-    <div className={"modal"}>
+    <div className="modal">
+      <img src="/images/CONGRATULATIONS.png" alt="Congrats" className="modal-image" />
       <div className="text-container">
         <p className="text">{name}</p> 
       </div> 
