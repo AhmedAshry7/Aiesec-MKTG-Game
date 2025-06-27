@@ -21,10 +21,11 @@ import palm2 from "./assets/palm2.png";
 
 export default function Home() {
   const questions = [
-    { question: "You hang me and dance under me, what am I?", answer: "discoball", image:island2 },
-    { question: "I have hands but no arms and a face but no eyes. What am I?", answer: "clock",image:coconut },
-    { question: "The more you take, the more you leave behind. What am I?", answer: "footsteps" ,image:surfing},
-    { question: "I speak without a mouth and hear without ears. What am I?", answer: "echo",image:huts },
+    { question: "I stick to your toes, I’m warm and I’m fun. You’ll find me at beaches under the sun.What am I?", answer: "sand", image:island2 },
+    { question: "I can lift your mood or make you cry, You hear me when the beats go by. On radios or when choirs sing, What am I?", answer: "songs",image:surfing },
+    { question: "I sit on your nose, block out the glare, Protect your eyes with stylish flair.What am I?", answer: "sunglasses" ,image:coconut},
+    { question: "Spiky outside, juicy inside, in smoothies and drinks, I love to hide. I’m sweet and yellow with a tropical bite, What fruit am I?", answer: "pineapple",image:huts },
+    { question: "Lights like a disco ball, drums from a distant shore. I’m where coconuts fall, and we party more and more. What’s the vibe?", answer: "hawaiian disco",image:element01 },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +38,7 @@ export default function Home() {
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(currentIndex + 1);
       }
-      if (currentIndex>2){
+      if (currentIndex>3){
         setShowCongratsModal(false);
       }
     } else {
