@@ -58,6 +58,33 @@ display: flex;
   text-stroke: 1px #337c59;
 }
 
+.modal{position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255); /* Semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-content-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text {
+  font-size: 40px;
+  font-weight: 500;
+  color: #04bcbc;
+  font-family: 'Lobster', cursive;
+  -webkit-text-stroke: 1px #337c59;
+  text-stroke: 1px #337c59;
+}
+
 .input-group {
   display: flex;
   gap: 8px;

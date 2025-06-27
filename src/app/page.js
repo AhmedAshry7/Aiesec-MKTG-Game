@@ -9,6 +9,7 @@ import island2 from "./assets/island2.png";
 import coconut from "./assets/coconut.png";
 import surfing from "./assets/surfing.png";
 import element01 from "./assets/element01.png";
+import Modal from "./Modal";
 import huts from "./assets/huts.png"
 import end from "./assets/beach.png";
 import palm1 from "./assets/palm1.png";
@@ -23,12 +24,15 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [showModal,setShowModal]=useState(true);
   const handleSubmit = (inputValue) => {
     const correctAnswer = questions[currentIndex].answer.toLowerCase().trim();
     if (inputValue.toLowerCase().trim() === correctAnswer) {
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(currentIndex + 1);
+      }
+      if (currentIndex>2){
+        setShowModal(false);
       }
     } else {
       // do nothing; Box will handle clearing input
@@ -59,6 +63,7 @@ export default function Home() {
         />
       ))}
       <Image className={styles.endImage} src={end} alt={"end"} />
+      <Modal invisible={showModal}/>
     </div>
   );
 }
