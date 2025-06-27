@@ -30,6 +30,17 @@
   margin-bottom: 20px;
 }
 
-.endImage{
+.topImage{
   width: -webkit-fill-available;
+}
+.endImage{
+  margin-top: 8px;
+  width: -webkit-fill-available;
+}
+
+.topholder{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
 }
