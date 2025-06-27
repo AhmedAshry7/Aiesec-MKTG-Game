@@ -1,9 +1,11 @@
 'use client'; // Needed for interactivity in app router
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
 import Box from "./Box";
 import image1 from "./assets/image1.jpeg";
+import end from "./assets/beach.png";
 
 export default function Home() {
   const questions = [
@@ -44,6 +46,7 @@ export default function Home() {
           onSubmit={handleSubmit}
         />
       ))}
+      <Image src={end} alt={"end"} />
     </div>
   );
 }
