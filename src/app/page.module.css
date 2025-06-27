@@ -29,3 +29,7 @@
   margin-top: 70px;
   margin-bottom: 20px;
 }
+
+.endImage{
+  width: -webkit-fill-available;
+}

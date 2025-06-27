@@ -46,7 +46,7 @@ export default function Home() {
           onSubmit={handleSubmit}
         />
       ))}
-      <Image src={end} alt={"end"} />
+      <Image className={styles.endImage} src={end} alt={"end"} />
     </div>
   );
 }
