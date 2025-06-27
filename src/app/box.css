@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
 
 .invible-container{
   display: none;
@@ -53,17 +58,19 @@ display: flex;
   font-weight: 500;
   margin-bottom: 8px;
   color: #04bcbc;
-  font-family: 'Lobster', cursive;
+  font-family: cursive;
   -webkit-text-stroke: 1px #337c59;
   text-stroke: 1px #337c59;
 }
 
-.modal{position: fixed;
+.modal{
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255); /* Semi-transparent dark overlay */
+  height: 100vh; 
+  background: url('/images/CONGRATULATIONS.png') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,13 +86,13 @@ display: flex;
 .text-container{
   align-items: center;
   display: flex;
-  flex-direction: column;
+  margin-top: -80px;
 }
 .text {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 500;
-  color: #04bcbc;
-  font-family: 'Lobster', cursive;
+  color: #128e97;
+  font-family: 'Space Grotesk', sans-serif;
   -webkit-text-stroke: 1px #337c59;
   text-stroke: 1px #337c59;
 }

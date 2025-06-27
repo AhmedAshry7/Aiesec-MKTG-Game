@@ -14,15 +14,9 @@ function Modal({ invisible, name }) {
 
   return (
     <div className={"modal"}>
-      <div className="modal-content-container">
-        <div className={"text-container"}>
-            <p className="text">IMPRESSSIVE</p>
-            <p className="text">{name}</p>  
-        </div>
-        <div className="image-container">
-          <Image src={correct} alt={"congratulations"} height={64} width={64} />
-        </div>
-      </div>
+      <div className="text-container">
+        <p className="text">{name}</p> 
+      </div> 
     </div>
   );
 }

@@ -18,10 +18,9 @@
 }
 
 .title,.welcome{
-  font-size: 40px;
+  font-size: 30px;
   color: white;
   font-family: 'Bebas Neue', sans-serif;
-  -webkit-text-stroke: 1px #04bcbc;
   text-stroke: 1px #04bcbc;
 } 
 
