@@ -29,7 +29,7 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [wrong, setWrong] = useState(0);
+  const [showedAnswer, setShowedAnswer] = useState(false);
   const [hints, sethints] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(true);   // existing end-game modal
   const [playerName, setPlayerName] = useState("");
@@ -37,7 +37,7 @@ export default function Home() {
   const handleSubmit = (inputValue) => {
     const correctAnswer = questions[currentIndex].answer.toLowerCase().trim();
     if (inputValue.toLowerCase().trim() === correctAnswer) {
-      setWrong(0);
+      setShowedAnswer(false);
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(currentIndex + 1);
       }
@@ -45,15 +45,12 @@ export default function Home() {
         setShowCongratsModal(false);
       }
     } else {
-      if (wrong==0){
-        toast.error('Oops! next time I will show the answer');;
-      }else{
-        toast.success(questions[currentIndex].answer);
+      toast.success(questions[currentIndex].answer);
+      if(!showedAnswer){
         let hintst=hints+1;
         sethints(hintst);
+        setShowedAnswer(true);
       }
-      let wrongt=wrong+1;
-      setWrong(wrongt);
     }
   };
 
