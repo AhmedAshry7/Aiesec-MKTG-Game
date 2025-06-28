@@ -29,12 +29,15 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [wrong, setWrong] = useState(0);
+  const [hints, sethints] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(true);   // existing end-game modal
   const [playerName, setPlayerName] = useState("");
   const [showIntroModal, setShowIntroModal] = useState(true);
   const handleSubmit = (inputValue) => {
     const correctAnswer = questions[currentIndex].answer.toLowerCase().trim();
     if (inputValue.toLowerCase().trim() === correctAnswer) {
+      setWrong(0);
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(currentIndex + 1);
       }
@@ -42,7 +45,17 @@ export default function Home() {
         setShowCongratsModal(false);
       }
     } else {
-      toast.error('Oops! Try again');
+      if (wrong==0){
+        toast.error('Oops! Try again');
+      }else if(wrong==1){        
+        toast.error('Oops! next time I will show the answer');
+      }else{
+        toast.success(questions[currentIndex].answer);
+        let hintst=hints+1;
+        sethints(hintst);
+      }
+      let wrongt=wrong+1;
+      setWrong(wrongt);
     }
   };
 
@@ -76,7 +89,7 @@ export default function Home() {
       ))}
       <Image className={styles.endImage} src={end} alt={"end"} />
       {showIntroModal && <FirstModal onSubmit={handleNameSubmit} />}
-      <Modal invisible={showCongratsModal} name={playerName} />
+      <Modal invisible={showCongratsModal} name={playerName} hints={hints} />
       <Toaster />
     </div>
   );

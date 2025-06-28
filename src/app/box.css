@@ -96,13 +96,26 @@ display: flex;
   position: fixed;
   margin-top: -95px;
 }
-.text {
+
+.hint-container{
+  align-items: center;
+  display: flex;
+  position: fixed;
+  margin-top: 90px;
+  margin-right: -160px;
+}
+
+.text,.hint {
   font-size: 50px;
   font-weight: 500;
   color: #128e97;
   font-family: 'Space Grotesk', sans-serif;
   -webkit-text-stroke: 1px #337c59;
   text-stroke: 1px #337c59;
+}
+
+.hint{
+  font-size: 20px;
 }
 
 .input-group {
