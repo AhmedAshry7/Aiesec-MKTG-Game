@@ -42,7 +42,7 @@ export default function Home() {
         setShowCongratsModal(false);
       }
     } else {
-      toast.error('Wrong! Try again');
+      toast.error('Oops! Try again');
     }
   };
 
