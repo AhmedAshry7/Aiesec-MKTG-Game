@@ -46,9 +46,7 @@ export default function Home() {
       }
     } else {
       if (wrong==0){
-        toast.error('Oops! Try again');
-      }else if(wrong==1){        
-        toast.error('Oops! next time I will show the answer');
+        toast.error('Oops! next time I will show the answer');;
       }else{
         toast.success(questions[currentIndex].answer);
         let hintst=hints+1;
