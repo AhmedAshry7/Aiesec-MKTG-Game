@@ -30,6 +30,8 @@ export default function Home() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showedAnswer, setShowedAnswer] = useState(false);
+  const [wrong,setWrong]=useState(0);
+  const [selectedDifficulty, setSelectedDifficulty] = useState('easy');
   const [hints, sethints] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(true);   // existing end-game modal
   const [playerName, setPlayerName] = useState("");
@@ -38,6 +40,7 @@ export default function Home() {
     const correctAnswer = questions[currentIndex].answer.toLowerCase().trim();
     if (inputValue.toLowerCase().trim() === correctAnswer) {
       setShowedAnswer(false);
+      setWrong(0);
       if (currentIndex + 1 < questions.length) {
         setCurrentIndex(currentIndex + 1);
       }
@@ -45,19 +48,41 @@ export default function Home() {
         setShowCongratsModal(false);
       }
     } else {
-      toast.success(questions[currentIndex].answer);
-      if(!showedAnswer){
-        let hintst=hints+1;
-        sethints(hintst);
-        setShowedAnswer(true);
+      if(selectedDifficulty=="easy"){
+        toast.success(questions[currentIndex].answer);
+        if(!showedAnswer){
+          let hintst=hints+1;
+          sethints(hintst);
+          setShowedAnswer(true);
+        }
+      }else if(selectedDifficulty=="medium"){
+        if(wrong==0){
+          toast.error("Oops try again!");
+        }else if(wrong==1){
+          toast.error("Oops next time I will show the answer!");
+        }
+        else{
+          toast.success(questions[currentIndex].answer);
+          if(!showedAnswer){
+            let hintst=hints+1;
+            sethints(hintst);
+            setShowedAnswer(true);
+        }
+        }
+        let wrongt=wrong+1;
+        setWrong(wrongt); 
+      }else{
+        toast.error("Oops try again!");
       }
+
     }
   };
-
-  const handleNameSubmit = (name) => {
+  const handleNameSubmit = ({ name, difficulty }) => {
     setPlayerName(name);
+    setSelectedDifficulty(difficulty); // <-- You need to have this state
     setShowIntroModal(false);
   };
+
 
   return (
     <div className={styles.page}>
@@ -84,7 +109,7 @@ export default function Home() {
       ))}
       <Image className={styles.endImage} src={end} alt={"end"} />
       {showIntroModal && <FirstModal onSubmit={handleNameSubmit} />}
-      <Modal invisible={showCongratsModal} name={playerName} hints={hints} />
+      <Modal invisible={showCongratsModal} name={playerName} hints={hints} difficulty={selectedDifficulty} />
       <Toaster />
     </div>
   );

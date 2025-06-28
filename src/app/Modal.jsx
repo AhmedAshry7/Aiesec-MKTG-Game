@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import './box.css';
 import correct from "./assets/correct.png"
-function Modal({ invisible, name, hints }) {
+function Modal({ invisible, name, hints, difficulty }) {
   const [isVisible, setIsVisible] = useState(!invisible);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function Modal({ invisible, name, hints }) {
         <p className="text">{name}</p> 
       </div>
       <div className="hint-container">
+        <p className="hint">Difficulty: {difficulty}</p> 
         <p className="hint">You used {hints} hints.</p> 
       </div>
     </div>

@@ -100,6 +100,7 @@ display: flex;
 .hint-container{
   align-items: center;
   display: flex;
+  flex-direction: column;
   position: fixed;
   margin-top: 90px;
   margin-right: -160px;
@@ -115,7 +116,7 @@ display: flex;
 }
 
 .hint{
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .input-group {

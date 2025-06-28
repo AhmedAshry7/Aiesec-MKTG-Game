@@ -5,12 +5,13 @@ import styles from "./firstModal.module.css";
 
 export default function FirstModal({ onSubmit }) {
   const [name, setName] = useState('');
+  const [difficulty, setDifficulty] = useState('easy'); // default difficulty
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmed = name.trim();
     if (trimmed) {
-      onSubmit(trimmed);          // send the name up
+      onSubmit({ name: trimmed, difficulty }); // pass both name and difficulty
     }
   };
 
@@ -27,6 +28,18 @@ export default function FirstModal({ onSubmit }) {
             placeholder="Type your name…"
             autoFocus
           />
+
+          <h4 className={styles.title2}>Show correct answer after?</h4>
+          <select
+            className={styles.select}
+            value={difficulty}
+            onChange={(e) => setDifficulty(e.target.value)}
+          >
+            <option value="easy">1 mistake</option>
+            <option value="medium">3 mistakes</option>
+            <option value="hard">Never</option>
+          </select>
+
           <button type="submit" className={styles.button}>
             Start
           </button>
