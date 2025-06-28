@@ -58,7 +58,7 @@ display: flex;
   font-weight: 500;
   margin-bottom: 8px;
   color: #04bcbc;
-  font-family: cursive;
+  font-family: 'Space Grotesk', sans-serif;;
   -webkit-text-stroke: 1px #337c59;
   text-stroke: 1px #337c59;
 }
