@@ -35,9 +35,9 @@ export default function FirstModal({ onSubmit }) {
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
           >
-            <option value="easy">1 mistake</option>
-            <option value="medium">3 mistakes</option>
-            <option value="hard">Never</option>
+            <option value="easy">Easy: 1 mistake</option>
+            <option value="medium">Medium: 3 mistakes</option>
+            <option value="hard">Hard: Never</option>
           </select>
 
           <button type="submit" className={styles.button}>

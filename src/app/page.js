@@ -25,7 +25,7 @@ export default function Home() {
     { question: "I can lift your mood or make you cry, You hear me when the beats go by. On radios or when choirs sing, What am I?", answer: "songs",image:surfing },
     { question: "I sit on your nose, block out the glare, Protect your eyes with stylish flair.What am I?", answer: "sunglasses" ,image:coconut},
     { question: "Spiky outside, juicy inside, in smoothies and drinks, I love to hide. I’m sweet and yellow with a tropical bite, What fruit am I?", answer: "pineapple",image:huts },
-    { question: "Lights like a disco ball, drums from a distant shore. I’m where coconuts fall, and we party more and more. What’s the vibe?", answer: "hawaiian disco",image:element01 },
+    { question: "Lights like a disco ball, drums from a distant shore. I’m where coconuts fall, and we party more and more. What’s the theme?", answer: "hawaiian disco",image:element01 },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
